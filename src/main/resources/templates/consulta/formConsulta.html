@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Consulta</title>
+</head>
+<body>
+
+	<h1>Consultar</h1>
+	<h3>
+		<a href="consulta" class="waves-effect waves-light btn"><i
+			class="material-icons left">add_circle_outline</i>Consultar</a>
+
+	</h3>
+	
+	<th:block th:include="mensagemValidacao.html"></th:block>
+	
+	<form class="container" method="post">
+		<div class="row">
+			<div class="input-field col s4">
+				Data Inicio: <input type="date" value="" name="dataEmissao" />
+			</div>
+			<div class="input-field col s4">
+				Data Final: <input type="date" value="" name="dataFinal" />
+			</div>
+			<div class="input-field col s4">
+				Cpf/Cnpj Destinatario: <input type="text" value=""
+					name="cpfCnpjDestinatario" />
+			</div>
+		</div>
+		<div class="input-field col s6">
+			<br /> Chave: <br />
+			<textarea type="text" value="" name="chave" id="chave"></textarea>
+			<br />
+		</div>
+
+		<button class="waves-effect waves-light btn" type="submit">Consultar</button>
+	</form>
+
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

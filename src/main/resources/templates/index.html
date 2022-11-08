@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Consultas</title>
+</head>
+<body>
+	<h1>Lista de Consultas</h1>
+	<h3>
+		<a href="consulta" class="waves-effect waves-light btn"><i
+			class="material-icons left">add_circle_outline</i>Consultar</a>
+
+	</h3>
+	<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<th>Sequencial</th>
+					<th>Data de Emissão</th>
+					<th>Data Final</th>
+					<th>CPF</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<!-- Essa div vai ser um foreach, para ler enquanto tiver dados -->
+				<tr th:each="consulta: ${consultas}">
+					<!-- Div para criar linha se existir dados  -->
+					<!-- o RCC (tem que ser maisculo) é a abreviação do Registro Consulta Controller,  #detalhesConsulta é o metodo que iremos usar, usando o arg como argumento o numero sequencial -->
+					<td><a
+						th:href="${#mvc.url('RCC#detalhesConsulta').arg(0, consulta.sequencial).build()}"><span
+							th:text="${consulta.sequencial}"></span></a></td>
+					<td><span th:text="${consulta.dataEmissao}"></span></td>
+					<td><span th:text="${consulta.dataFinal}"></span></td>
+					<td><span th:text="${consulta.cpfCnpjDestinatario}"></span></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
